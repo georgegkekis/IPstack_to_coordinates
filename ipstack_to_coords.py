@@ -33,9 +33,7 @@ def is_key_present(conf):
     return True
 
 
-parser = argparse.ArgumentParser(
-    description="Gets the lat and long of the ip provided from IPstack"
-)
+parser = argparse.ArgumentParser(description="Gets the lat and long for ip")
 parser.add_argument(
     "--ip",
     dest="ip",
@@ -65,8 +63,6 @@ res_dict = res.json()
 if res_dict.get("latitude"):
     print(f"lat:{res_dict['latitude']},long:{res_dict['longitude']}")
 elif res_dict.get("error"):
-    print(
-        f"error code:{res_dict['error']['code']}\nerror type:{res_dict['error']['type']}"
-    )
+    print(f"error code:{res_dict['error']['code']}\nerror type:{res_dict['error']['type']}")
 else:
     print("Something went wrong. No data found for the IP address.")
